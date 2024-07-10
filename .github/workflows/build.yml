@@ -59,4 +59,4 @@ jobs:
     - name: Build Kernel
       run: |
         cd android
-        tools/bazel run --config=local //common:kernel_aarch64 -- --dist_dir=out/dist
+        tools/bazel build //common:kernel_aarch64_dist
