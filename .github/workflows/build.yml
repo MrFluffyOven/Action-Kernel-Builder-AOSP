@@ -69,3 +69,20 @@ jobs:
       run: |
         cd android
         tools/bazel build //common:kernel_aarch64_dist
+
+    - name: Setup kernel
+      continue-on-error: true
+      run: |
+        mkdir -p android/kernelbuild
+        cp -nf $(find android/out -name '${{ inputs.KERNEL_IMAGE_NAME }}*') android/kernelbuild/ 2>/dev/null
+
+    - name: Upload to Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: |
+          android/kernelbuild/${{ inputs.KERNEL_IMAGE_NAME }}*
+        name: Android Kernel Release | ${{ github.run_id }}
+        tag_name: ${{ github.run_id }}
+        body: |
+          ## Build Information
+          Manifest: ${{ inputs.MANIFEST_URL }}/tree/${{ inputs.MANIFEST_BRANCH }}
