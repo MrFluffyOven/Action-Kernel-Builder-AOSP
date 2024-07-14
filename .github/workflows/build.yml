@@ -6,11 +6,11 @@ on:
       MANIFEST_URL:
         description: 'Kernel Manifest'
         required: true
-        default: 'https://github.com/cd-Crypton/a05s_manifest'
+        default: 'https://github.com/cd-Crypton/android_kernel_samsung_bengal-5.15_manifest'
       MANIFEST_BRANCH:
         description: 'Kernel Manifest Branch'
         required: true
-        default: 'main'
+        default: 'staging-13'
       KERNEL_IMAGE_NAME:
         description: 'Image, Image.gz, Image.gz-dtb, etc.'
         required: true
