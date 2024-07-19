@@ -68,7 +68,7 @@ jobs:
     - name: Build Kernel
       run: |
         cd android
-        tools/bazel build //common:kernel_aarch64_dist
+        tools/bazel build --config=fast //common:kernel_aarch64_dist
 
     - name: Setup kernel
       continue-on-error: true
